@@ -12,18 +12,12 @@ export default function DoctorInfo({
 	location = "HSR Layout, Bengal",
 	name = "Dr. Mukund Sutar",
 }: DoctorInfoProps) {
-	const [visible, setVisible] = useState(false);
-
-	const showModal = () => setVisible(true);
-	const hideModal = () => setVisible(false);
-	const containerStyle = { backgroundColor: "white", padding: 20 };
-
-	console.log(visible);
+	const [open, setOpen] = useState(false);
 
 	return (
 		<>
 			<Pressable
-				onPress={() => showModal()}
+				onPress={() => setOpen(true)}
 				android_ripple={{ color: "transparent" }}
 				style={({ pressed }) => [
 					{
@@ -79,15 +73,15 @@ export default function DoctorInfo({
 			<Modal
 				animationType="fade"
 				transparent={true}
-				visible={visible}
+				visible={open}
 				onRequestClose={() => {
 					console.log("Modal has been closed.");
-					setVisible(!visible);
+					setOpen(!open);
 				}}
 			>
 				<Pressable
 					style={styles.centeredView}
-					onPress={() => setVisible(false)}
+					onPress={() => setOpen(false)}
 				>
 					<Pressable
 						style={styles.modalView}
@@ -132,7 +126,7 @@ export default function DoctorInfo({
 							<Card.Actions
 								style={{ backgroundColor: "transparent" }}
 							>
-								<Button onPress={() => setVisible(false)}>
+								<Button onPress={() => setOpen(false)}>
 									Close
 								</Button>
 							</Card.Actions>
