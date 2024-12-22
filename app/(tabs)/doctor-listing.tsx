@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet, View } from "react-native";
 import DoctorInfo from "../../components/doctor-info";
 import { Text } from "react-native-paper";
 
-export default function Page() {
+export default function DoctorListing() {
 	const arr = Array(5).fill("");
 
 	return (
