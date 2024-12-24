@@ -1,19 +1,12 @@
-import { Modal, Pressable, SafeAreaView, StyleSheet, View } from "react-native";
-import { Button, Card, Surface, TextInput } from "react-native-paper";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { useState } from "react";
+import { useRouter } from "expo-router";
+import { StyleSheet, View } from "react-native";
+import { Button, Card, Surface } from "react-native-paper";
 
 export default function Profile() {
-	const [open, setOpen] = useState<boolean>(false);
-	const [info, setInfo] = useState<{
-		name: string;
-		email: string;
-		phoneNumber: string;
-		location: string;
-	}>({ name: "", email: "", phoneNumber: "", location: "" });
+	const router = useRouter();
 
 	const size = 35;
-
 	const arr = [
 		{
 			title: "Name",
@@ -52,48 +45,15 @@ export default function Profile() {
 
 				<View style={styles.cardAction}>
 					<Card.Actions>
-						<Button mode="outlined" onPress={() => setOpen(true)}>
+						<Button
+							mode="outlined"
+							onPress={() => router.push("/edit")}
+						>
 							Edit
 						</Button>
 					</Card.Actions>
 				</View>
 			</Surface>
-			<Modal
-				animationType="fade"
-				transparent={true}
-				visible={open}
-				onRequestClose={() => {
-					console.log("Modal has been closed.");
-					setOpen(!open);
-				}}
-			>
-				<Pressable
-					style={styles.centeredView}
-					onPress={() => setOpen(false)}
-				>
-					<Pressable
-						style={styles.modalView}
-						onPress={(e) => e.stopPropagation()}
-					>
-						<View style={styles.modalContent}>
-							{arr.map((i, index) => (
-								<TextInput
-									key={index}
-									label={i.title}
-									value={info?.email}
-									onChangeText={(text) =>
-										setInfo((prev) => ({
-											...prev,
-											[i.title]: text,
-										}))
-									}
-									style={{ maxHeight: 20 }}
-								/>
-							))}
-						</View>
-					</Pressable>
-				</Pressable>
-			</Modal>
 		</View>
 	);
 }

@@ -1,39 +1,33 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { useQuery } from "@tanstack/react-query";
+import { ScrollView, View } from "react-native";
+
 import DoctorInfo from "../../components/doctor-info";
-import { Text } from "react-native-paper";
+import { api } from "../../lib/axios-config";
+import type { TDoctorListing } from "../../lib/types/users";
 
 export default function DoctorListing() {
-	const arr = Array(5).fill("");
+  const { data } = useQuery({
+    queryKey: ["users"],
+    queryFn: () => {
+      return api.get<TDoctorListing[]>("/users");
+    },
+  });
+  const apiData = data?.data;
 
-	return (
-		<View style={styles.container}>
-			<ScrollView style={{ flex: 1 }} contentContainerStyle={styles.list}>
-				{arr.map((i, index) => (
-					<DoctorInfo key={index} />
-				))}
-			</ScrollView>
-		</View>
-	);
+  const usersData = apiData?.map((i) => {
+    return {
+      name: i.name,
+      email: i.email,
+      address: `${i.address.street}, ${i.address.city}`,
+      phone: i.phone,
+    };
+  });
+
+  return (
+    <View className="flex-1 p-4 pb-0">
+      <ScrollView>
+        {usersData?.map((i, index) => <DoctorInfo key={index} {...i} />)}
+      </ScrollView>
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: "center",
-		padding: 24,
-		display: "flex",
-		flexDirection: "column",
-		gap: 12,
-	},
-	main: {
-		justifyContent: "center",
-	},
-	title: {
-		fontWeight: "bold",
-	},
-	subtitle: {
-		fontSize: 36,
-		color: "#38434D",
-	},
-	list: {},
-});
