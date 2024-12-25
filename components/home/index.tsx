@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { useState } from "react";
 import { Image, ScrollView } from "react-native";
+import { Drawer } from "react-native-drawer-layout";
 
 import { Box } from "../../ui/box";
 import { Button } from "../../ui/button";
@@ -11,6 +13,8 @@ import ImageCard from "../../ui/image-card";
 import { Text } from "../../ui/text";
 
 export default function Home() {
+	const [open, setOpen] = useState(false);
+
 	const imageCardArr = [
 		{
 			path: require("../../assets/images/person-phone.jpg"),
@@ -123,6 +127,19 @@ export default function Home() {
 							</Box>
 						</Box>
 					))}
+
+				<Drawer
+					open={open}
+					onOpen={() => setOpen(true)}
+					onClose={() => setOpen(false)}
+					renderDrawerContent={() => {
+						return <Text>Drawer content</Text>;
+					}}
+				>
+					<Button
+						onPress={() => setOpen((prevOpen) => !prevOpen)}
+					>{`${open ? "Close" : "Open"} drawer`}</Button>
+				</Drawer>
 			</Box>
 		</ScrollView>
 	);
