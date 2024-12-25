@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 
-import Input from "../components/input";
+import Input from "../ui/input";
 
 export default function Name() {
 	const [info, setInfo] = useState<{
