@@ -1,48 +1,40 @@
 import { createTheme } from "@shopify/restyle";
 
-export const COLORS = {
+export const palette = {
 	white: "#FFFFFF",
 	white50: "#FFFFFF80",
 	black: "#000000",
 	black50: "#00000080",
-	red: "#ff0000",
 
 	primaryBg: "#FFFFFF",
-	secondaryBg: "#D9D9D999",
-	ticketBg: "#F1F1F1",
-	inputBg: "#F2F2F2",
-	primaryText: "#353535",
-	mutedText: "#A4A5A6",
-	secondaryText: "#616C76",
+	secondaryBg: "#eaf5fe",
+	primaryText: "#322927",
+	mutedText: "#c8cbd1",
+	secondaryText: "#2c5472",
 	border: "#D9D9D9",
 	border2: "#C6C6C6",
-	accent: "#596A93",
-	accentLight: "#eff1f5",
-	accent2: "#5C6373",
-	wheelSelect: "#E4E4E3",
-	extension: "#2276DF",
+	accent: "#1b96b6",
+	accentLight: "#b3dbf1",
+	accent2: "#2c5472",
+	accent2Light: "#4e83ad",
+} as const;
 
-	success: "#82BF80",
-	successDark: "#2E7D32",
-	warning: "#F2CD88",
-	amber: "#F2A950",
-	error: "#FEC0C7",
-	errorDark: "#D32F2F",
-	errorIcon: "#E65475",
-	errorText: "#5F2120",
-	errorLight: "#FECDD2",
-
-	messageSender: "#F0DFBE",
-	messageReceiver: "#CFEBCE",
-	divider: "#969596",
-	modal: "#00000066",
-	avatar: "#2C3140",
+export const FONT_FMAILY = {
+	light: "Roboto_300Light",
+	normal: "Roboto_400Regular",
+	medium: "Roboto_500Medium",
+	bold: "Roboto_700Bold",
 } as const;
 
 export const THEME = {
-	colors: COLORS,
+	colors: palette,
 
 	spacing: {
+		sm: 8,
+		md: 12,
+		bs: 16,
+		lg: 20,
+		xl: 24,
 		0: 0,
 		0.25: 1,
 		0.5: 2,
@@ -84,49 +76,65 @@ export const THEME = {
 		120: 480,
 		160: 640,
 		200: 800,
+		"5%": "5%",
 		"10%": "10%",
 		"15%": "15%",
 		"20%": "20%",
 		"25%": "25%",
+		"30%": "30%",
+		"35%": "35%",
 		"40%": "40%",
 		"45%": "45%",
 		"50%": "50%",
 		"55%": "55%",
 		"60%": "60%",
+		"65%": "65%",
+		"70%": "70%",
 		"75%": "75%",
 		"80%": "80%",
+		"85%": "85%",
+		"90%": "90%",
+		"95%": "95%",
 		"100%": "100%",
 		auto: "auto",
 	},
 
-	borderRadius: {
+	borderRadii: {
 		0: 0,
+		0.5: 0.5,
+		1: 1,
 		2.5: 2.5,
 		5: 5,
 		10: 10,
+		16: 16,
+		24: 24,
 		32: 32,
 		full: 9999,
 	},
 
 	textVariants: {
+		light: {
+			fontSize: 16,
+			color: "primaryText",
+			fontFamily: FONT_FMAILY.light,
+		},
+
 		defaults: {
 			fontSize: 16,
 			color: "primaryText",
+			fontFamily: FONT_FMAILY.normal,
 		},
 
 		medium: {
 			fontSize: 16,
 			color: "primaryText",
-		},
-
-		semibold: {
-			fontSize: 16,
-			color: "primaryText",
+			fontFamily: FONT_FMAILY.medium,
 		},
 
 		bold: {
 			fontSize: 16,
 			color: "primaryText",
+			fontFamily: FONT_FMAILY.bold,
 		},
 	},
 } satisfies Parameters<typeof createTheme>[0];
