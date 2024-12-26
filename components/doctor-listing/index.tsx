@@ -3,6 +3,7 @@ import { ScrollView } from "react-native";
 
 import { api } from "../../lib/axios-config";
 import type { TDoctorListing } from "../../lib/types/users";
+import { Box } from "../../ui/box";
 import DoctorInfo from "../../ui/doctor-info";
 
 export default function DoctorListing() {
@@ -24,8 +25,12 @@ export default function DoctorListing() {
 	});
 
 	return (
-		<ScrollView style={{ flex: 1, padding: 14 }}>
-			{usersData?.map((i, index) => <DoctorInfo key={index} {...i} />)}
+		<ScrollView style={{ flex: 1 }}>
+			<Box p={4} pb={0}>
+				{usersData?.map((i, index) => (
+					<DoctorInfo key={index} {...i} />
+				))}
+			</Box>
 		</ScrollView>
 	);
 }

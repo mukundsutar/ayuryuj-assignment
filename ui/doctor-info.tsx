@@ -29,7 +29,7 @@ export default function DoctorInfo({ name, address }: DoctorInfoProps) {
 					width={125}
 					height={175}
 					source={{
-						uri: `https://picsum.photos/seed/${name}/125/175`,
+						uri: `https://i.pravatar.cc/300/?u=${name}`,
 					}}
 					borderRadius={10}
 				/>
