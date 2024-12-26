@@ -2,9 +2,9 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs } from "expo-router";
 
-import { CustomDrawer } from "../../ui/drawer-ui/custom-drawer";
 import { useDrawer } from "../../lib/providers/drawer-provider";
 import { PressableBox } from "../../ui/box";
+import { CustomDrawer } from "../../ui/drawer-ui/custom-drawer";
 import {
 	HomeHeader,
 	HomeHeaderLeft,
@@ -16,7 +16,12 @@ export default function TabLayout() {
 
 	return (
 		<CustomDrawer>
-			<Tabs screenOptions={{ tabBarActiveTintColor: "#1c96b6" }}>
+			<Tabs
+				screenOptions={{
+					tabBarActiveTintColor: "#1c96b6",
+					animation: "shift",
+				}}
+			>
 				<Tabs.Screen
 					name="index"
 					options={{
