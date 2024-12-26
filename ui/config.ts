@@ -10,13 +10,15 @@ export const palette = {
 	secondaryBg: "#eaf5fe",
 	primaryText: "#322927",
 	mutedText: "#c8cbd1",
-	secondaryText: "#2c5472",
+	secondaryText: "#73787e",
 	border: "#D9D9D9",
 	border2: "#C6C6C6",
 	accent: "#1b96b6",
 	accentLight: "#b3dbf1",
 	accent2: "#2c5472",
 	accent2Light: "#4e83ad",
+
+	cardYellow: "#fef0c4",
 } as const;
 
 export const FONT_FMAILY = {
@@ -97,6 +99,7 @@ export const THEME = {
 		"95%": "95%",
 		"100%": "100%",
 		auto: "auto",
+		fit: "fit-content",
 	},
 
 	borderRadii: {
