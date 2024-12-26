@@ -49,7 +49,7 @@ export default function Profile() {
 			<Box
 				width="100%"
 				flexDirection="column"
-				pt={12}
+				pt={8}
 				pb={8}
 				px={12}
 				bg="secondaryBg"
@@ -63,6 +63,9 @@ export default function Profile() {
 						width: 250,
 						height: 250,
 						marginHorizontal: "auto",
+						borderWidth: 1,
+						borderRadius: 9999,
+						borderColor: palette.accent2,
 					}}
 					resizeMode="cover"
 				/>
