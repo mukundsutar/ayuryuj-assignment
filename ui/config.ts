@@ -2,9 +2,7 @@ import { createTheme } from "@shopify/restyle";
 
 export const palette = {
 	white: "#FFFFFF",
-	white50: "#FFFFFF80",
 	black: "#000000",
-	black50: "#00000080",
 
 	primaryBg: "#FFFFFF",
 	secondaryBg: "#eaf5fe",
@@ -12,7 +10,7 @@ export const palette = {
 	mutedText: "#c8cbd1",
 	secondaryText: "#73787e",
 	border: "#D9D9D9",
-	border2: "#C6C6C6",
+	border2: "#1b96b650",
 	accent: "#1b96b6",
 	accentLight: "#b3dbf1",
 	accent2: "#2c5472",
@@ -99,7 +97,6 @@ export const THEME = {
 		"95%": "95%",
 		"100%": "100%",
 		auto: "auto",
-		fit: "fit-content",
 	},
 
 	borderRadii: {

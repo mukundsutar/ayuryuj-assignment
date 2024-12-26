@@ -1,7 +1,7 @@
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
-import { Box } from "./box";
+import { Box, PressableBox } from "./box";
 import { palette } from "./config";
 import { Text } from "./text";
 
@@ -19,12 +19,20 @@ export function HomeHeader() {
 export function HomeHeaderRight() {
 	return (
 		<Box flexDirection="row" gap={4} mr={4}>
-			<MaterialIcons name="wallet" size={28} color={palette.accent2} />
-			<MaterialCommunityIcons
-				name="bell-outline"
-				size={28}
-				color={palette.accent2}
-			/>
+			<PressableBox>
+				<MaterialIcons
+					name="wallet"
+					size={28}
+					color={palette.accent2}
+				/>
+			</PressableBox>
+			<PressableBox>
+				<MaterialCommunityIcons
+					name="bell-outline"
+					size={28}
+					color={palette.accent2}
+				/>
+			</PressableBox>
 		</Box>
 	);
 }

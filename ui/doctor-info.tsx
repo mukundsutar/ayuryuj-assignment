@@ -1,3 +1,5 @@
+import { useRouter } from "expo-router";
+import React from "react";
 import { Image } from "react-native";
 
 import { Box, PressableBox } from "./box";
@@ -5,13 +7,16 @@ import { Button } from "./button";
 import { Text } from "./text";
 
 interface DoctorInfoProps {
+	id: number;
 	name: string;
 	email: string;
 	address: string;
 	phone: string;
 }
 
-export default function DoctorInfo({ name, address }: DoctorInfoProps) {
+export default function DoctorInfo({ id, name, address }: DoctorInfoProps) {
+	const router = useRouter();
+
 	const hospital = "mFine Healthcare";
 
 	return (
@@ -23,6 +28,9 @@ export default function DoctorInfo({ name, address }: DoctorInfoProps) {
 			gap={4}
 			bg="accentLight"
 			borderRadius={10}
+			onPress={() => {
+				router.push({ pathname: "/doctor", params: { id } });
+			}}
 		>
 			<Box flexDirection="row">
 				<Image

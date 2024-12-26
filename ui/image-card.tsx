@@ -2,7 +2,7 @@ import React from "react";
 import type { ImageSourcePropType } from "react-native";
 import { Image } from "react-native";
 
-import { Box } from "./box";
+import { Box, PressableBox } from "./box";
 import { Text } from "./text";
 
 interface ImageCardProps {
@@ -12,7 +12,7 @@ interface ImageCardProps {
 
 export default function ImageCard({ src, title }: ImageCardProps) {
 	return (
-		<Box position="relative" width="30%">
+		<PressableBox position="relative" width="30%">
 			<Image
 				source={src}
 				style={{
@@ -41,6 +41,6 @@ export default function ImageCard({ src, title }: ImageCardProps) {
 					</Text>
 				</Box>
 			) : null}
-		</Box>
+		</PressableBox>
 	);
 }

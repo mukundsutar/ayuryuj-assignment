@@ -1,4 +1,4 @@
-import { Box } from "./box";
+import { Box, PressableBox } from "./box";
 import type { TTHEME } from "./config";
 import { Text } from "./text";
 
@@ -20,7 +20,7 @@ export default function HealthCheckChard({
 	bgColor = "accentLight",
 }: HealthCheckChardProps) {
 	return (
-		<Box
+		<PressableBox
 			bg={bgColor}
 			p={3}
 			flexDirection="column"
@@ -43,6 +43,6 @@ export default function HealthCheckChard({
 					&nbsp;{precentage}% OFF
 				</Text>
 			</Box>
-		</Box>
+		</PressableBox>
 	);
 }

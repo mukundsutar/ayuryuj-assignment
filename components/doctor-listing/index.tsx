@@ -17,6 +17,7 @@ export default function DoctorListing() {
 
 	const usersData = apiData?.map((i) => {
 		return {
+			id: i.id,
 			name: i.name,
 			email: i.email,
 			address: `${i.address.street}, ${i.address.city}`,

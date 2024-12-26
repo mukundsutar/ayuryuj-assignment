@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Image, ScrollView } from "react-native";
 
-import { Box } from "../../ui/box";
+import { Box, PressableBox } from "../../ui/box";
 import { Button } from "../../ui/button";
 import type { TTHEME } from "../../ui/config";
 import { palette } from "../../ui/config";
@@ -98,7 +98,11 @@ export default function Home() {
 				{Array(3)
 					.fill("")
 					.map((_, index) => (
-						<Box key={index} width="100%" position="relative">
+						<PressableBox
+							key={index}
+							width="100%"
+							position="relative"
+						>
 							<Image
 								source={{
 									uri: `https://picsum.photos/seed/${index + 1}/1920/1080`,
@@ -131,7 +135,7 @@ export default function Home() {
 									Place holder banner
 								</Text>
 							</Box>
-						</Box>
+						</PressableBox>
 					))}
 			</Box>
 		</ScrollView>
