@@ -24,6 +24,7 @@ export default function Doctor() {
 	});
 	const apiData = data?.data;
 
+	// custom backdrop for bottom sheet
 	function CustomBackdrop({ style }: BottomSheetBackdropProps) {
 		const containerStyle = useMemo(
 			() => [
