@@ -60,15 +60,17 @@ export default function Doctor() {
 			backdropComponent={CustomBackdrop}
 		>
 			<BottomSheetView>
-				<Box height="100%">
-					<DoctorInfo
-						id={Number(apiData?.id)}
-						name={apiData?.name ?? ""}
-						email={apiData?.email ?? ""}
-						address={`${apiData?.address.street}, ${apiData?.address.city}`}
-						phone={apiData?.phone ?? ""}
-					/>
-				</Box>
+				{apiData ? (
+					<Box height="100%">
+						<DoctorInfo
+							id={Number(apiData?.id)}
+							name={apiData?.name}
+							email={apiData?.email}
+							address={`${apiData?.address.street}, ${apiData?.address.city}`}
+							phone={apiData?.phone}
+						/>
+					</Box>
+				) : null}
 			</BottomSheetView>
 		</BottomSheet>
 	);
