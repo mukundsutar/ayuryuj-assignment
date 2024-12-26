@@ -73,9 +73,9 @@ export default function TabLayout() {
 					options={{
 						title: "Profile",
 						tabBarIcon: ({ color }) => (
-							<MaterialCommunityIcons
-								name="cog"
-								size={28}
+							<MaterialIcons
+								name="person"
+								size={24}
 								color={color}
 							/>
 						),
