@@ -24,7 +24,7 @@ export default function Edit() {
 	}>({ height: "", weight: "", pastIssues: "" });
 
 	const size = 35;
-	const arr = [
+	const editArr = [
 		{
 			title: "Name",
 			key: "name",
@@ -50,7 +50,6 @@ export default function Edit() {
 			),
 		},
 	];
-
 	const medicalInfoArr = [
 		{ title: "Height (cm)", key: "height" },
 		{ title: "Weight (kg)", key: "weight" },
@@ -89,7 +88,7 @@ export default function Edit() {
 					resizeMode="cover"
 				/>
 
-				{arr.map((i, index) => (
+				{editArr.map((i, index) => (
 					<TextField
 						key={index}
 						label={i.title}
