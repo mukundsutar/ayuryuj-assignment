@@ -14,6 +14,7 @@ interface DoctorInfoProps {
 	address: string;
 	phone: string;
 	specialization?: string;
+	disable?: boolean;
 }
 
 export default function DoctorInfo({
@@ -21,6 +22,7 @@ export default function DoctorInfo({
 	name,
 	address,
 	specialization,
+	disable,
 }: DoctorInfoProps) {
 	const router = useRouter();
 
@@ -36,7 +38,10 @@ export default function DoctorInfo({
 			bg="accentLight"
 			borderRadius={10}
 			onPress={() => {
-				router.push({ pathname: "/doctor", params: { id } });
+				router.push({
+					pathname: "/doctor",
+					params: { id, specialization },
+				});
 			}}
 		>
 			<Box flexDirection="row">
@@ -98,14 +103,24 @@ export default function DoctorInfo({
 			<Box width="100%" flexDirection="row" gap={4}>
 				<Button
 					onPress={() => {
-						router.push({ pathname: "/doctor", params: { id } });
+						if (!disable) {
+							router.push({
+								pathname: "/doctor",
+								params: { id, specialization },
+							});
+						}
 					}}
 				>
 					Know more
 				</Button>
 				<Button
 					onPress={() => {
-						router.push({ pathname: "/doctor", params: { id } });
+						if (!disable) {
+							router.push({
+								pathname: "/doctor",
+								params: { id, specialization },
+							});
+						}
 					}}
 				>
 					Consult

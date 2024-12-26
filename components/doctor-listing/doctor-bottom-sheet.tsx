@@ -14,7 +14,10 @@ import DoctorInfo from "../../ui/doctor-info";
 export default function Doctor() {
 	const bottomSheetRef = useRef<BottomSheet>(null);
 	const router = useRouter();
-	const params = useLocalSearchParams<{ id: string }>();
+	const params = useLocalSearchParams<{
+		id: string;
+		specialization: string;
+	}>();
 
 	const { data } = useQuery({
 		queryKey: [`users-${params.id}`, params.id],
@@ -49,6 +52,8 @@ export default function Doctor() {
 		);
 	}
 
+	console.log(params.specialization);
+
 	return (
 		<BottomSheet
 			ref={bottomSheetRef}
@@ -69,6 +74,8 @@ export default function Doctor() {
 							email={apiData?.email}
 							address={`${apiData?.address.street}, ${apiData?.address.city}`}
 							phone={apiData?.phone}
+							specialization={params.specialization}
+							disable
 						/>
 					</Box>
 				) : null}
