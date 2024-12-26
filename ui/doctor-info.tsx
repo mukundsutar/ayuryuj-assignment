@@ -4,6 +4,7 @@ import { Image } from "react-native";
 
 import { Box, PressableBox } from "./box";
 import { Button } from "./button";
+import Chip from "./chip";
 import { Text } from "./text";
 
 interface DoctorInfoProps {
@@ -12,12 +13,18 @@ interface DoctorInfoProps {
 	email: string;
 	address: string;
 	phone: string;
+	specialization?: string;
 }
 
-export default function DoctorInfo({ id, name, address }: DoctorInfoProps) {
+export default function DoctorInfo({
+	id,
+	name,
+	address,
+	specialization,
+}: DoctorInfoProps) {
 	const router = useRouter();
 
-	const hospital = "mFine Healthcare";
+	const hospital = "Ayuryuj Healthcare";
 
 	return (
 		<PressableBox
@@ -78,12 +85,31 @@ export default function DoctorInfo({ id, name, address }: DoctorInfoProps) {
 						>
 							₹ 123
 						</Text>
+						<Box flexDirection="row" width="100%" mt={2}>
+							<Chip
+								label={specialization ?? "here"}
+								bg="cardYellow"
+								color="accent2"
+							/>
+						</Box>
 					</Box>
 				</Box>
 			</Box>
 			<Box width="100%" flexDirection="row" gap={4}>
-				<Button>Know more</Button>
-				<Button>Consult</Button>
+				<Button
+					onPress={() => {
+						router.push({ pathname: "/doctor", params: { id } });
+					}}
+				>
+					Know more
+				</Button>
+				<Button
+					onPress={() => {
+						router.push({ pathname: "/doctor", params: { id } });
+					}}
+				>
+					Consult
+				</Button>
 			</Box>
 		</PressableBox>
 	);
