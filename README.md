@@ -8,8 +8,17 @@ Design files can be found in `app-files/design`.
 
 ## Screenshots/Design
 Screenshots can be found in `app-files/screenshots`.
-`Home`
-![Alt text](app-files/screenshots/home.png)
+
+<div align="center">
+  <img src="app-files/screenshots/home.png" width="300" />
+  <img src="app-files/screenshots/profile.png" width="300" />
+  <img src="app-files/screenshots/doctor-listing.png" width="300" />
+</div>
+<div align="center">
+  <img src="app-files/screenshots/drawer.png" width="300" />
+  <img src="app-files/screenshots/doctor-info-modal.png" width="300" />
+  <img src="app-files/screenshots/profile-edit.png" width="300" />
+</div>
 
 ## Installation
 
