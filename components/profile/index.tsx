@@ -1,97 +1,119 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
-import { StyleSheet, View } from "react-native";
-import { Button, Card, Surface } from "react-native-paper";
+import { Image, ScrollView } from "react-native";
+
+import { Box } from "../../ui/box";
+import { Button } from "../../ui/button";
+import Chip from "../../ui/chip";
+import { palette } from "../../ui/config";
+import ProfileInfoList from "../../ui/profile-info-list";
+import { Text } from "../../ui/text";
 
 export default function Profile() {
 	const router = useRouter();
 
-	const size = 35;
-	const arr = [
+	const size = 24;
+	const color = palette.accent2;
+
+	const contactInfoArr = [
 		{
-			title: "Name",
-			icon: <MaterialIcons name="person" size={size} color="black" />,
+			label: "Email",
+			icon: <MaterialIcons name="email" size={size} color={color} />,
+			value: "mukundsutar1512@gmail.com",
 		},
 		{
-			title: "Email",
-			icon: <MaterialIcons name="email" size={size} color="black" />,
-		},
-		{
-			title: "Phone Number",
+			label: "Contact No.",
 			icon: (
-				<MaterialIcons name="local-phone" size={size} color="black" />
+				<MaterialIcons name="local-phone" size={size} color={color} />
 			),
+			value: "+91-8275812026",
 		},
 		{
-			title: "Location",
+			label: "Address",
 			icon: (
-				<MaterialIcons name="location-pin" size={size} color="black" />
+				<MaterialIcons name="location-pin" size={size} color={color} />
 			),
+			value: "Pune",
 		},
 	];
 
-	return (
-		<View style={styles.container}>
-			<Surface style={styles.main}>
-				{arr.map((i, index) => (
-					<Card.Title
-						key={index}
-						title={i.title}
-						left={() => i.icon}
-						style={styles.section}
-						titleVariant="headlineMedium"
-					/>
-				))}
+	const medicalInfoArr = [
+		{ label: "Blood Group", value: "B+" },
+		{ label: "Height", value: "184cm" },
+		{ label: "Weight", value: "63kg" },
+		{ label: "Past Health Issues", value: "None" },
+	];
 
-				<View style={styles.cardAction}>
-					<Card.Actions>
-						<Button
-							mode="outlined"
-							onPress={() => router.push("/edit")}
+	return (
+		<ScrollView style={{ flex: 1 }}>
+			<Box
+				width="100%"
+				flexDirection="column"
+				pt={12}
+				pb={8}
+				px={12}
+				bg="secondaryBg"
+				height="100%"
+				gap={8}
+				flex={1}
+			>
+				<Image
+					source={{ uri: "https://avatar.iran.liara.run/public/49" }}
+					style={{
+						width: 250,
+						height: 250,
+						marginHorizontal: "auto",
+					}}
+					resizeMode="cover"
+				/>
+
+				{/* name */}
+				<Box flexDirection="column" gap={2}>
+					<Box>
+						<Text
+							fontSize={32}
+							variant="bold"
+							ellipsizeMode="tail"
+							numberOfLines={2}
 						>
-							Edit
-						</Button>
-					</Card.Actions>
-				</View>
-			</Surface>
-		</View>
+							Mukund Sutar
+						</Text>
+						<Text>Software Developer</Text>
+					</Box>
+
+					<Box flexDirection="row" gap={2}>
+						<Chip
+							label="Male"
+							bg="accent"
+							color="white"
+							width={55}
+						/>
+						<Chip
+							label="22y"
+							bg="accent2"
+							color="white"
+							width={55}
+						/>
+					</Box>
+				</Box>
+
+				{/* contact info */}
+				<ProfileInfoList label="Contact Info" data={contactInfoArr} />
+
+				{/* medical info */}
+				<ProfileInfoList label="Medical Info" data={medicalInfoArr} />
+
+				{/* edit */}
+				<Box>
+					<Button
+						onPress={() => {
+							router.push("/edit");
+						}}
+					>
+						Edit
+					</Button>
+				</Box>
+			</Box>
+		</ScrollView>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: "center",
-		paddingVertical: 24,
-		paddingHorizontal: 12,
-	},
-	main: {
-		justifyContent: "flex-start",
-		borderRadius: 12,
-	},
-	section: { width: "100%" },
-	cardAction: {
-		alignItems: "flex-start",
-	},
-	centeredView: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-		backgroundColor: "#00000050",
-	},
-	modalView: {
-		margin: 20,
-		backgroundColor: "white",
-		borderRadius: 20,
-		alignItems: "center",
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 2,
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 4,
-		elevation: 5,
-	},
-	modalContent: { padding: 16 },
-});
