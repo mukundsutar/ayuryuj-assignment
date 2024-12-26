@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
-import { ScrollView } from "react-native";
+import { Linking, ScrollView } from "react-native";
 
 import { useDrawer } from "../../lib/providers/drawer-provider";
 import Avatar from "../avatar";
@@ -213,7 +213,24 @@ export function DrawerContent() {
 			<ScrollView>
 				<Box gap={4} my={4}>
 					{/* share */}
-					<Box flexDirection="row" gap={4} alignItems="center" px={4}>
+					<PressableBox
+						flexDirection="row"
+						gap={4}
+						alignItems="center"
+						px={4}
+						onPress={async () => {
+							try {
+								await Linking.openURL(
+									"https://github.com/mukundsutar/ayuryuj-assignment"
+								);
+							} catch (error) {
+								console.error(
+									"An error occurred while opening the URL:",
+									error
+								);
+							}
+						}}
+					>
 						<Box bg="accentLight" p={2} borderRadius="full">
 							<MaterialCommunityIcons
 								name="share-variant"
@@ -229,7 +246,7 @@ export function DrawerContent() {
 								Recommended to Family and Friends
 							</Text>
 						</Box>
-					</Box>
+					</PressableBox>
 
 					<Box>
 						{menuItems.map((i, index) => (
