@@ -1,20 +1,17 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { useState } from "react";
 import { Image, ScrollView } from "react-native";
-import { Drawer } from "react-native-drawer-layout";
 
 import { Box } from "../../ui/box";
 import { Button } from "../../ui/button";
+import type { TTHEME } from "../../ui/config";
 import { palette } from "../../ui/config";
 import HealthCheckChard from "../../ui/health-check-card";
 import ImageCard from "../../ui/image-card";
 import { Text } from "../../ui/text";
 
 export default function Home() {
-	const [open, setOpen] = useState(false);
-
 	const imageCardArr = [
 		{
 			path: require("../../assets/images/person-phone.jpg"),
@@ -42,13 +39,21 @@ export default function Home() {
 		},
 	];
 
-	const healthCheckCard = [
+	const healthCheckCard: {
+		title: string;
+		testCount: number;
+		ogPrice: number;
+		price: number;
+		precentage: number;
+		bgColor?: keyof TTHEME["colors"];
+	}[] = [
 		{
 			title: "Ayushman Basic Health Check",
 			testCount: 76,
 			ogPrice: 2600,
 			price: 999,
 			precentage: 60,
+			bgColor: "accentLight",
 		},
 		{
 			title: "Ayushman Vital Health Check",
@@ -56,6 +61,7 @@ export default function Home() {
 			ogPrice: 4200,
 			price: 1899,
 			precentage: 60,
+			bgColor: "cardYellow",
 		},
 	];
 
@@ -127,19 +133,6 @@ export default function Home() {
 							</Box>
 						</Box>
 					))}
-
-				<Drawer
-					open={open}
-					onOpen={() => setOpen(true)}
-					onClose={() => setOpen(false)}
-					renderDrawerContent={() => {
-						return <Text>Drawer content</Text>;
-					}}
-				>
-					<Button
-						onPress={() => setOpen((prevOpen) => !prevOpen)}
-					>{`${open ? "Close" : "Open"} drawer`}</Button>
-				</Drawer>
 			</Box>
 		</ScrollView>
 	);

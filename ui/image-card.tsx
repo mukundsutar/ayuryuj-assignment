@@ -21,7 +21,7 @@ export default function ImageCard({ src, title }: ImageCardProps) {
 					borderRadius: 16,
 				}}
 				resizeMode="cover"
-				alt="here"
+				alt="images"
 			/>
 
 			{title ? (

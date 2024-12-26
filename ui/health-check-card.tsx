@@ -1,4 +1,5 @@
 import { Box } from "./box";
+import type { TTHEME } from "./config";
 import { Text } from "./text";
 
 interface HealthCheckChardProps {
@@ -7,6 +8,7 @@ interface HealthCheckChardProps {
 	ogPrice?: number;
 	price?: number;
 	precentage?: number;
+	bgColor?: keyof TTHEME["colors"];
 }
 
 export default function HealthCheckChard({
@@ -15,10 +17,11 @@ export default function HealthCheckChard({
 	ogPrice = 2400,
 	price = 999,
 	precentage = 60,
+	bgColor = "accentLight",
 }: HealthCheckChardProps) {
 	return (
 		<Box
-			bg="accentLight"
+			bg={bgColor}
 			p={3}
 			flexDirection="column"
 			flex={1}
