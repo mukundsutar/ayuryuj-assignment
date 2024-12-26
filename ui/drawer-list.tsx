@@ -15,20 +15,22 @@ export default function DrawerList({ label, data, size }: DrawerListProps) {
 			<Text variant="bold" fontSize={20} textTransform="uppercase">
 				{label}
 			</Text>
-			{data.map((item, index) => (
-				<PressableBox
-					key={index}
-					flexDirection="row"
-					alignItems="center"
-					mb={4}
-					gap={2}
-				>
-					<Box width={size}>{item.icon}</Box>
-					<Text fontSize={20} color="secondaryText">
-						{item.title}
-					</Text>
-				</PressableBox>
-			))}
+			<Box gap={1}>
+				{data.map((item, index) => (
+					<PressableBox
+						key={index}
+						flexDirection="row"
+						alignItems="center"
+						mb={4}
+						gap={2}
+					>
+						<Box width={size}>{item.icon}</Box>
+						<Text fontSize={20} color="secondaryText">
+							{item.title}
+						</Text>
+					</PressableBox>
+				))}
+			</Box>
 		</Box>
 	);
 }
