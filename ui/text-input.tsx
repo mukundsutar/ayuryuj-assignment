@@ -4,6 +4,7 @@ import { TextInput } from "react-native";
 
 import type { BoxProps } from "./box";
 import { Box } from "./box";
+import type { TTHEME } from "./config";
 import { palette } from "./config";
 import { Text } from "./text";
 
@@ -17,6 +18,7 @@ interface TextFieldProps extends BoxProps {
 	value: string;
 	setValue: React.Dispatch<React.SetStateAction<string>>;
 	inputMode?: InputModeOptions;
+	backgroundC?: keyof TTHEME["colors"];
 }
 
 export default function TextField({
@@ -29,6 +31,7 @@ export default function TextField({
 	value,
 	setValue,
 	inputMode,
+	backgroundC,
 	...props
 }: TextFieldProps) {
 	return (
@@ -48,7 +51,9 @@ export default function TextField({
 						paddingVertical: 10,
 						fontSize: 18,
 						color: palette.accent2,
-						backgroundColor: palette.accentLight,
+						backgroundColor: backgroundC
+							? backgroundC
+							: palette.accentLight,
 						width: fullWidth
 							? "100%"
 							: (inputWidth as ViewStyle["width"]),
