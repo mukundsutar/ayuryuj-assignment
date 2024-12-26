@@ -2,7 +2,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs } from "expo-router";
 
-import { CustomDrawer } from "../../lib/providers/custom-drawer";
+import { CustomDrawer } from "../../ui/drawer-ui/custom-drawer";
 import { useDrawer } from "../../lib/providers/drawer-provider";
 import { PressableBox } from "../../ui/box";
 import {

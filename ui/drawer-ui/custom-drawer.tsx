@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Drawer } from "react-native-drawer-layout";
 
+import { useDrawer } from "../../lib/providers/drawer-provider";
 import { DrawerContent } from "./drawer-content";
-import { useDrawer } from "./drawer-provider";
 
 export function CustomDrawer({ children }: { children: React.ReactNode }) {
 	const { isOpen, openDrawer, closeDrawer } = useDrawer();
@@ -17,6 +17,7 @@ export function CustomDrawer({ children }: { children: React.ReactNode }) {
 			drawerPosition="left"
 			renderDrawerContent={() => <DrawerContent />}
 			drawerStyle={styles.drawer}
+			swipeEnabled={isOpen ? false : true}
 		>
 			{children}
 		</Drawer>
