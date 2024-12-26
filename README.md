@@ -3,6 +3,11 @@
 ## Description
 A React Native mobile application built with Expo.
 
+## Features
+1. Bottom Sheet as Modal
+2. API Intergration with Dummy Data
+3. Based on design provided
+
 ## Design
 Design files can be found in `app-files/design`.
 
