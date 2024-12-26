@@ -1,35 +1,35 @@
 {
-  "expo": {
-    "name": "ayuryuj-assignment",
-    "slug": "ayuryuj-assignment",
-    "scheme": "ayuryuj-assignment",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.mutant.ayuryujassignment"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png",
-      "bundler": "metro"
-    },
-    "plugins": [
-      "expo-router",
-      "expo-font"
-    ]
-  }
+	"expo": {
+		"name": "ayuryuj-assignment",
+		"slug": "ayuryuj-assignment",
+		"scheme": "ayuryuj-assignment",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/app-icon/icon.png",
+		"userInterfaceStyle": "light",
+		"newArchEnabled": true,
+		"splash": {
+			"image": "./assets/app-icon/splashscreen.png",
+			"resizeMode": "cover"
+		},
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"package": "com.mutant.ayuryujassignment"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png",
+			"bundler": "metro"
+		},
+		"plugins": ["expo-router", "expo-font"],
+		"extra": {
+			"router": {
+				"origin": false
+			},
+			"eas": {
+				"projectId": "9c2105d2-b4f4-4571-8333-0497eaab9982"
+			}
+		}
+	}
 }
