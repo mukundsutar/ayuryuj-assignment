@@ -3,8 +3,13 @@
 ## Description
 A React Native mobile application built with Expo.
 
+## Design
+Design files can be found in `app-files/design`.
+
 ## Screenshots/Design
-Design files can be found in `app-files/design`. Screenshots can be found in `app-files/screenshots`. 
+Screenshots can be found in `app-files/screenshots`.
+`Home`
+![Alt text](app-files/screenshots/home.png)
 
 ## Installation
 
