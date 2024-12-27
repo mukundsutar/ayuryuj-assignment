@@ -17,10 +17,12 @@ Screenshots can also be found in `app-files/screenshots`.
 <div align="center">
   <img src="app-files/screenshots/home.png" width="300" />
   <img src="app-files/screenshots/doctor-listing.png" width="300" />
-  <img src="app-files/screenshots/profile.png" width="300" />
 </div>
 <div align="center">
+  <img src="app-files/screenshots/profile.png" width="300" />
   <img src="app-files/screenshots/drawer.png" width="300" />
+</div>
+<div align="center">
   <img src="app-files/screenshots/doctor-info-modal.png" width="300" />
   <img src="app-files/screenshots/profile-edit.png" width="300" />
 </div>
