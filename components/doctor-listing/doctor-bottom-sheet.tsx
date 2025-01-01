@@ -52,8 +52,6 @@ export default function Doctor() {
 		);
 	}
 
-	console.log(params.specialization);
-
 	return (
 		<BottomSheet
 			ref={bottomSheetRef}
