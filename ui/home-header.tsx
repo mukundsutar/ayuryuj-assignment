@@ -9,7 +9,7 @@ export function HomeHeader() {
 	return (
 		<Box flexDirection="column" ml={2}>
 			<Text fontSize={12}>Your Location</Text>
-			<Text ellipsizeMode="tail" numberOfLines={1}>
+			<Text variant="medium" ellipsizeMode="tail" numberOfLines={1}>
 				Pune, Maharashtra
 			</Text>
 		</Box>
