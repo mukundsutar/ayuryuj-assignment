@@ -22,6 +22,16 @@ export default function TabLayout() {
 				screenOptions={{
 					tabBarActiveTintColor: "#1c96b6",
 					animation: "shift",
+					tabBarStyle: {
+						height: 65,
+						alignItems: "center",
+						justifyContent: "center",
+						display: "flex",
+					},
+					tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
+					tabBarIconStyle: { width: 30, height: 30 },
+					tabBarActiveBackgroundColor: "#f1f5f9",
+					headerShadowVisible: false,
 				}}
 			>
 				<Tabs.Screen
@@ -30,8 +40,8 @@ export default function TabLayout() {
 						title: "Home",
 						tabBarIcon: ({ color }) => (
 							<MaterialIcons
-								name="home"
-								size={28}
+								name="home-filled"
+								size={24}
 								color={color}
 							/>
 						),
@@ -99,6 +109,12 @@ export default function TabLayout() {
 							>
 								<HomeHeaderLeft />
 							</PressableBox>
+						),
+						headerTitleAlign: "center",
+						headerTitle: () => (
+							<Text variant="bold" fontSize={20}>
+								Profile
+							</Text>
 						),
 					}}
 				/>
