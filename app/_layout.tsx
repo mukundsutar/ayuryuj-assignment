@@ -45,6 +45,19 @@ export default function RootLayout() {
 											presentation: "transparentModal",
 										}}
 									/>
+									<Stack.Screen
+										name="symptoms"
+										options={{
+											title: "Symptoms",
+											headerBackVisible: true,
+											presentation: "modal",
+											headerTitleStyle: {
+												fontSize: 18,
+												fontWeight: "bold",
+											},
+											headerTitleAlign: "center",
+										}}
+									/>
 								</Stack>
 							</ThemeProvider>
 						</BottomSheetModalProvider>
