@@ -195,10 +195,7 @@ export default function DoctorInfo({
 				<ConsultButton
 					onPress={() => {
 						if (!disable) {
-							router.push({
-								pathname: "/doctor",
-								params: { id, specialization },
-							});
+							router.push("/symptoms");
 						}
 					}}
 				/>
