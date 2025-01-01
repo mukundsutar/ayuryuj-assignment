@@ -77,7 +77,7 @@ export default function DoctorListing() {
 				/>
 			</Box>
 
-			<Box bg="secondaryBg" px={4} pt={4}>
+			<Box bg="tertiaryBg" px={4} pt={4}>
 				<Box flexDirection="row">
 					<ScrollView horizontal>
 						<Box flexDirection="row" gap={2} pb={2}>

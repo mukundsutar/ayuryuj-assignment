@@ -4,12 +4,14 @@ import { Tabs } from "expo-router";
 
 import { useDrawer } from "../../lib/providers/drawer-provider";
 import { PressableBox } from "../../ui/box";
+import { palette } from "../../ui/config";
 import { CustomDrawer } from "../../ui/drawer-ui/custom-drawer";
 import {
 	HomeHeader,
 	HomeHeaderLeft,
 	HomeHeaderRight,
 } from "../../ui/home-header";
+import { Text } from "../../ui/text";
 
 export default function TabLayout() {
 	const { openDrawer } = useDrawer();
@@ -49,7 +51,7 @@ export default function TabLayout() {
 				<Tabs.Screen
 					name="doctor-listing"
 					options={{
-						title: "Available Doctors",
+						title: "Choose your Doctor",
 						tabBarIcon: ({ color }) => (
 							<MaterialCommunityIcons
 								name="doctor"
@@ -63,9 +65,19 @@ export default function TabLayout() {
 									openDrawer();
 								}}
 							>
-								<HomeHeaderLeft />
+								<MaterialIcons
+									name="arrow-back"
+									size={24}
+									color={palette.semiMutedText}
+								/>
 							</PressableBox>
 						),
+						headerTitle: () => (
+							<Text variant="bold" fontSize={20}>
+								Choose your Doctor
+							</Text>
+						),
+						headerTitleAlign: "center",
 					}}
 				/>
 				<Tabs.Screen
