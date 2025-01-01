@@ -6,6 +6,7 @@ export const palette = {
 
 	primaryBg: "#FFFFFF",
 	secondaryBg: "#eaf5fe",
+	tertiaryBg: "#f1f5f9",
 	primaryText: "#322927",
 	secondaryText: "#73787e",
 	mutedText: "#c8cbd1",
@@ -21,7 +22,7 @@ export const palette = {
 	cardYellow: "#fef0c4",
 } as const;
 
-export const FONT_FMAILY = {
+export const FONT_FAMILY = {
 	light: "Roboto_300Light",
 	normal: "Roboto_400Regular",
 	medium: "Roboto_500Medium",
@@ -40,6 +41,7 @@ export const THEME = {
 		0: 0,
 		0.25: 1,
 		0.5: 2,
+		0.75: 3,
 		1: 4,
 		1.5: 6,
 		2: 8,
@@ -119,25 +121,25 @@ export const THEME = {
 		light: {
 			fontSize: 16,
 			color: "primaryText",
-			fontFamily: FONT_FMAILY.light,
+			fontFamily: FONT_FAMILY.light,
 		},
 
 		defaults: {
 			fontSize: 16,
 			color: "primaryText",
-			fontFamily: FONT_FMAILY.normal,
+			fontFamily: FONT_FAMILY.normal,
 		},
 
 		medium: {
 			fontSize: 16,
 			color: "primaryText",
-			fontFamily: FONT_FMAILY.medium,
+			fontFamily: FONT_FAMILY.medium,
 		},
 
 		bold: {
 			fontSize: 16,
 			color: "primaryText",
-			fontFamily: FONT_FMAILY.bold,
+			fontFamily: FONT_FAMILY.bold,
 		},
 	},
 } satisfies Parameters<typeof createTheme>[0];
