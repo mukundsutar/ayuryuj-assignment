@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { ScrollView } from "react-native";
+import { FlatList, ScrollView } from "react-native";
 
 import { api } from "../../lib/axios-config";
 import { specialization } from "../../lib/data";
 import type { TDoctorListing } from "../../lib/types/users";
 import { Box } from "../../ui/box";
-import { Button } from "../../ui/button";
 import DoctorInfo from "../../ui/doctor-info";
+import OfferCard from "../../ui/offer-card";
+import SearchField from "../../ui/search";
 import { Text } from "../../ui/text";
-import TextField from "../../ui/text-input";
 
 export default function DoctorListing() {
 	const [text, setText] = useState<string>("");
@@ -48,33 +48,62 @@ export default function DoctorListing() {
 			);
 		});
 
+	const renderItem = ({
+		item,
+	}: {
+		item: {
+			id: number;
+			name: string;
+			email: string;
+			address: string;
+			phone: string;
+			specialization: string;
+		};
+	}) => {
+		return <DoctorInfo {...item} />;
+	};
+
 	return (
-		<ScrollView style={{ flex: 1 }}>
-			<Box p={4} pb={0}>
-				<Box flexDirection="row" mb={4} gap={2}>
-					<TextField
-						value={text}
-						setValue={setText}
-						backgroundC="white"
-						flex={1}
-						placeholder="Search for Doctor"
-					/>
-					<Button>Search</Button>
+		<Box flex={1} py={4} mb={42} bg="primaryBg">
+			<Box flexDirection="row" mb={4} gap={2} px={4}>
+				<SearchField
+					value={text}
+					setValue={setText}
+					backgroundC="white"
+					flex={1}
+					placeholder="Search for Doctor"
+					borderRadius="full"
+					inputHeight={44}
+				/>
+			</Box>
+
+			<Box bg="secondaryBg" px={4} pt={4}>
+				<Box flexDirection="row">
+					<ScrollView horizontal>
+						<Box flexDirection="row" gap={2} pb={2}>
+							<OfferCard amount={250} />
+							<OfferCard amount={100} />
+							<OfferCard amount={300} />
+						</Box>
+					</ScrollView>
 				</Box>
+
+				<Box my={4} mt={8}>
+					<Text variant="medium">Show earlier available doctors</Text>
+				</Box>
+
 				{usersData && usersData.length >= 1 ? (
-					usersData?.map((i, index) => (
-						<DoctorInfo
-							key={index}
-							{...i}
-							specialization={i.specialization}
-						/>
-					))
+					<FlatList data={usersData} renderItem={renderItem} />
 				) : isFetched ? (
-					<Text>No matching Doctors Found</Text>
+					<Box minHeight="100%">
+						<Text>No matching Doctors Found</Text>
+					</Box>
 				) : (
-					<Text>Finding nearby Doctors...</Text>
+					<Box minHeight="100%">
+						<Text>Finding nearby Doctors...</Text>
+					</Box>
 				)}
 			</Box>
-		</ScrollView>
+		</Box>
 	);
 }
