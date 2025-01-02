@@ -26,6 +26,9 @@ Screenshots can also be found in `app-files/screenshots`.
   <img src="app-files/screenshots/doctor-info-modal.png" width="300" />
   <img src="app-files/screenshots/profile-edit.png" width="300" />
 </div>
+<div align="start">
+  <img src="app-files/screenshots/symptoms.png" width="300" />
+</div>
 
 ## Installation
 
